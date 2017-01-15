@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+ 
+using namespace std;
+ 
+int checkfor4dividers(int x){
+	bool firstdivider=1;
+	for(int i=2; i<sqrt(x); ++i){
+		if(x%i==0){
+			if(firstdivider)
+				firstdivider=0;
+			else	return 0;
+ 
+		}
+	}
+	if(firstdivider==0)
+		return 1;
+	else return 0;
+}
+ 
+int main() {
+	int n, dif, sum=0;
+	cin>>n;
+	vector <int> mas(n);
+	for(int i=0; i<n; ++i){
+		cin>>mas[i];
+	}
+	for(int i=0; i<n; ++i){
+		if(checkfor4dividers(mas[i])){
+			cout<<mas[i]<<" ";
+		}
+	}
+	return 0;
+}
